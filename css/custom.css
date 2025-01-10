@@ -1,0 +1,41 @@
+:root {
+    --background-color: #001D3D;
+    --primary-color: #FFC300;
+    --footer-background: #000814;
+}
+
+body{
+    background-color: var(--background-color);
+    color: #fff;
+}
+
+#header-section {
+    height: 75px;
+    background-color: rgba(0, 29, 61, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+
+#landing-section {
+    margin-top: 120px;
+}
+
+#donation-count{
+    color: var(--primary-color)
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.clickable {
+    cursor: pointer; /* Mauszeiger ändern */
+}
+
+.selected {
+    border-color: var(--primary-color) !important;
+  }
+
+  footer {
+    background-color: var(--footer-background);
+  }
