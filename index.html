@@ -6,14 +6,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>KleiderHilfe</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
+    <!-- See: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
+    <!-- See: https://icons.getbootstrap.com/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Custom CSS -->
@@ -24,139 +27,146 @@
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg sticky-top" id="header-section">
+    <!-- See: https://getbootstrap.com/docs/5.3/components/navbar/ --> 
+    <nav class="navbar navbar-expand-lg sticky-top" id="site-header">
         <div class="container">
-            <!-- Logo -->
+            <!-- Logo + Titel -->
             <a class="navbar-brand text-white" href="#">
                 <i class="bi bi-backpack-fill"></i>
                 KleiderHilfe
             </a>
-            <!-- Hamburger-Menü -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <!-- Menülinks -->
-            <div class="collapse navbar-collapse text-white" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-white">
-                    <li class="nav-item"><a class="nav-link text-white" href="#donate">Spenden</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#faq">F.A.Q.</a></li>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-white" href="#register-donation">Spenden</a>
+                    <a class="nav-link text-white" href="#">F.A.Q.</a>
                 </ul>
             </div>
         </div>
     </nav>
 
+
+
     <!-- Landing Section -->
-    <section class="container-fluid d-flex align-items-center justify-content-center" id="landing-section">
-        <div class="container text-center">
-            <div class="row">
-                <div class="landing-content col-6 mx-auto">
-                    <h1>Jede Kleiderspende zählt!</h1>
-                    <h4 class="mt-3">Bereits mehr als <span id="donation-count">0</span> Kleidungsstücke gesammelt</h4>
-                    <p class="mt-4">Unterstützen Sie Menschen in Krisenregionen mit Ihrer Kleiderspende.
-                                    Entscheiden Sie selbst, wohin Ihre Hilfe gehen soll. Einfach registrieren, auswählen und Gutes tun.
-                                    Werden Sie Teil unserer Mission, Bedürftigen weltweit Hoffnung und Unterstützung zu schenken.
-                                    Jeder Beitrag zählt – machen Sie mit!</p>
-                </div>
+    <section class="container text-center mt-5 pt-5">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <h1>Jede Kleiderspende zählt!</h1>
+                <h4>Bereits mehr als <span id="donation-count">0</span> Kleidungsstücke gesammelt</h4>
+                <p>
+                    Unterstützen Sie Menschen in Krisenregionen mit Ihrer Kleiderspende.
+                    Entscheiden Sie selbst, wohin Ihre Hilfe gehen soll. Einfach registrieren, auswählen und Gutes tun.
+                    Werden Sie Teil unserer Mission, Bedürftigen weltweit Hoffnung und Unterstützung zu schenken.
+                    Jeder Beitrag zählt - machen Sie mit
+                </p>
             </div>
         </div>
     </section>
 
-    <div class="container text-center my-4">
-        <div class="mx-auto" style="width: 300px; height: 2px; background-color: var(--primary-color);"></div>
-    </div>
 
 
-    <!-- Spendenart Auswahl -->
-    <div class="container">
-        <div class="row justify-content-center mt-5 mb-5 text-center">
-            <div class="col-12">
-                <h3>Spende vorbeibringen oder abholen lassen</h3>
-                <p>Wählen Sie, ob Sie Ihre Kleiderspende vorbeibringen möchten oder ob wir diese für Sie abholen sollen</p>
+    <!-- Horizontal Divider -->
+    <section class="horizontal-divider container mt-5 mb-5"></section>
+
+
+
+    <!-- Spende registrieren -->
+    <section class="container text-center mt-5 mb-5" id="register-donation">
+        <!-- Überschrift -->
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <h4>Registrieren Sie Ihre Spende ganz einfach online</h4>
+                <p>Wählen Sie zunächst, ob Sie Ihre Spende vorbeibringen möchten oder ob wir diese für Sie abholen sollen</p>
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <!-- Option 1 (dropoff) -->
-            <div id="dropoff" class="col-4 border rounded p-4 me-2 clickable selected" style="border-width: 2px !important;">
-                <h4><i class="bi bi-box2-heart"></i> Vorbeibringen</h4>
-                <div class="d-flex align-items-center mt-3">
-                    <p>Bringen Sie Ihre Kleidung oder andere Spenden bequem an einen unserer 169 Standorte und helfen Sie direkt vor Ort.</p>
-                </div>
+        <div class="form-bg" style=>
+        <!-- Auswahlmöglichkeiten -->
+        <div class="row mt-3">
+            <!-- Vorbeibringen -->
+            <div class="mx-auto col-3 border rounded p-3 me-2 clickable selected" id="dropoff" style="border-width: 2px !important;">
+                <h5><i class="bi bi-box2-heart"></i> Vorbeibringen</h5>
+                <p class="mb-0">Bringen Sie Ihre Spenden zu einem unserer 169 Standorte</p>
             </div>
 
-            <!-- Option 2 (pickup) -->
-            <div id="pickup" class="col-4 border rounded p-4 ms-2 clickable " style="border-width: 2px !important;">
-                <h4><i class="bi bi-truck"></i> Abholen lassen</h4>
-                <div class="d-flex align-items-center mt-3">
-                    <p>Nutzen Sie unseren Abholservice und lassen Sie Ihre Spende einfach und bequem direkt bei Ihnen zuhause abholen.</p>
-                </div>
+            <!-- Abholen lassen -->
+            <div class="mx-auto col-3 border rounded p-3 ms-2 clickable" id="pickup" style="border-width: 2px !important;">
+                <h5><i class="bi bi-truck"></i> Abholen lassen</h5>
+                <p class="mb-0">Nutzen Sie unseren Abholservice und lassen Sie Ihre Spende abholen</p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-7 mx-auto rounded" style="background-color: #003566;">
+                <form class="p-4 ">
+                    <!-- Anrede -->
+                    <div class="col-3 mb-3 ps-3 pe-3">
+                        <select id="anrede" class="donation-form form-select" required>
+                            <option value="" selected disabled>Anrede</option>
+                            <option value="Herr">Herr</option>
+                            <option value="Frau">Frau</option>
+                            <option value="Divers">Divers</option>
+                        </select>
+                    </div>
+
+                    <!-- Name -->
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="text" id="vorname" class="donation-form form-control" placeholder="Max" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="nachname" class="donation-form form-control" placeholder="Mustermann" required>
+                        </div>
+                    </div>
+                    <!-- Kontakt -->
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="email" class="form-label">E-Mail</label>
+                            <input type="email" id="email" class="donation-form form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="col">
+                            <label for="telefon" class="form-label">Telefon</label>
+                            <input type="tel" id="telefon" class="donation-form form-control" placeholder="0123 4567890" required>
+                        </div>
+                    </div>
+                    <!-- Adresse -->
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="plz" class="form-label">PLZ</label>
+                            <input type="text" id="plz" class="donation-form form-control" placeholder="12345" required>
+                        </div>
+                        <div class="col">
+                            <label for="stadt" class="form-label">Stadt</label>
+                            <input type="text" id="stadt" class="donation-form form-control" placeholder="Berlin" required>
+                        </div>
+                    </div>
+                    <!-- Art der Kleidung -->
+                    <div class="row mb-3">
+                        <label for="kleidung" class="form-label">Art der Kleidung</label>
+                        <select id="kleidung" class="donation-form form-select" multiple required>
+                            <option value="Socken">Socken</option>
+                            <option value="Hemden">Hemden</option>
+                            <option value="Hosen">Hosen</option>
+                            <option value="Jacken">Jacken</option>
+                            <option value="Schuhe">Schuhe</option>
+                        </select>
+                        <small class="form-text text-muted">Drücken Sie Strg (oder Cmd) für Mehrfachauswahl.</small>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Absenden</button>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Formular -->
-    <div class="container mt-5 mb-5 col-5 mx-auto">
-        <form class="p-4 ">
-            <!-- Anrede -->
-            <div class="row mb-3">
-                <label for="anrede" class="form-label">Anrede</label>
-                <select id="anrede" class="form-select" required>
-                    <option value="" selected disabled>Bitte wählen...</option>
-                    <option value="Herr">Herr</option>
-                    <option value="Frau">Frau</option>
-                    <option value="Divers">Divers</option>
-                </select>
-            </div>
-            <!-- Name -->
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="vorname" class="form-label">Vorname</label>
-                    <input type="text" id="vorname" class="form-control" placeholder="Max" required>
-                </div>
-                <div class="col">
-                    <label for="nachname" class="form-label">Nachname</label>
-                    <input type="text" id="nachname" class="form-control" placeholder="Mustermann" required>
-                </div>
-            </div>
-            <!-- Kontakt -->
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="email" class="form-label">E-Mail</label>
-                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
-                </div>
-                <div class="col">
-                    <label for="telefon" class="form-label">Telefon</label>
-                    <input type="tel" id="telefon" class="form-control" placeholder="0123 4567890" required>
-                </div>
-            </div>
-            <!-- Adresse -->
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="plz" class="form-label">PLZ</label>
-                    <input type="text" id="plz" class="form-control" placeholder="12345" required>
-                </div>
-                <div class="col">
-                    <label for="stadt" class="form-label">Stadt</label>
-                    <input type="text" id="stadt" class="form-control" placeholder="Berlin" required>
-                </div>
-            </div>
-            <!-- Art der Kleidung -->
-            <div class="row mb-3">
-                <label for="kleidung" class="form-label">Art der Kleidung</label>
-                <select id="kleidung" class="form-select" multiple required>
-                    <option value="Socken">Socken</option>
-                    <option value="Hemden">Hemden</option>
-                    <option value="Hosen">Hosen</option>
-                    <option value="Jacken">Jacken</option>
-                    <option value="Schuhe">Schuhe</option>
-                </select>
-                <small class="form-text text-muted">Drücken Sie Strg (oder Cmd) für Mehrfachauswahl.</small>
-            </div>
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Absenden</button>
-        </form>
-    </div>
+    </section>
 
     <!-- FAQ -->
      <div class="container pb-5">

@@ -4,28 +4,31 @@
     --footer-background: #000814;
 }
 
+/*Anpassung der generellen Hintergrundfarbe auf blau und der Textfarbe auf weiß*/
 body{
     background-color: var(--background-color);
     color: #fff;
 }
 
-#header-section {
+#site-header {
     height: 75px;
     background-color: rgba(0, 29, 61, 0.8);
     backdrop-filter: blur(8px);
 }
 
-
 #landing-section {
     margin-top: 120px;
 }
 
+/*Anpassung der Counter Farbe für den oberen Landing Bereich der Seite*/
 #donation-count{
     color: var(--primary-color)
 }
 
-.bg-primary {
-    background-color: var(--primary-color) !important;
+.horizontal-divider{
+    width: 300px;
+    height: 2px;
+    background-color: var(--primary-color)
 }
 
 .clickable {
@@ -36,6 +39,15 @@ body{
     border-color: var(--primary-color) !important;
   }
 
-  footer {
+/* Custom Form Stuff */
+.donation-form {
+    background-color: #001D3D;
+    border-color: #FFC300;
+    border-width: 2px;
+    color:white;
+}
+
+
+footer {
     background-color: var(--footer-background);
   }
