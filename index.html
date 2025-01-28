@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="de">
 
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,55 +9,45 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <!-- See: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Siehe: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
-    <!-- See: https://icons.getbootstrap.com/ -->
+    <!-- Siehe: https://icons.getbootstrap.com/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
-
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <body>
     <!-- Header -->
-    <!-- See: https://getbootstrap.com/docs/5.3/components/navbar/ --> 
-    <nav class="navbar navbar-expand-lg sticky-top" id="site-header">
+    <!-- Siehe: https://getbootstrap.com/docs/5.3/components/navbar/ --> 
+    <nav class="navbar sticky-top pt-3 pb-3" id="site-header">
         <div class="container">
-            <!-- Logo + Titel -->
+
             <a class="navbar-brand text-white" href="#">
-                <i class="bi bi-backpack-fill"></i>
-                KleiderHilfe
+                <i class="bi bi-backpack-fill"></i> KleiderHilfe
             </a>
 
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Menülinks -->
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link text-white" href="#register-donation">Spenden</a>
-                    <a class="nav-link text-white" href="#">F.A.Q.</a>
-                </ul>
+            <div class="navbar-nav flex-row gap-3">
+                <a class="nav-link text-white" href="#faq">F.A.Q.</a>
+                <a class="btn btn-primary" href="#donation-info">Spenden</a>
             </div>
+
         </div>
     </nav>
 
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
-
-    <!-- Landing Section -->
+    <!-- Landing Bereich -->
     <section class="container text-center mt-5 pt-5">
         <div class="row">
             <div class="col-8 mx-auto">
                 <h1>Jede Kleiderspende zählt!</h1>
-                <h4>Bereits mehr als <span id="donation-count">0</span> Kleidungsstücke gesammelt</h4>
+                <h4>Bereits mehr als <span id="donation-counter">0</span> Kleidungsstücke gesammelt</h4>
                 <p>
                     Unterstützen Sie Menschen in Krisenregionen mit Ihrer Kleiderspende.
                     Entscheiden Sie selbst, wohin Ihre Hilfe gehen soll. Einfach registrieren, auswählen und Gutes tun.
@@ -70,140 +58,160 @@
         </div>
     </section>
 
-
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!-- Horizontal Divider -->
     <section class="horizontal-divider container mt-5 mb-5"></section>
 
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
+    <!-- Infotext zur Spendenregistrierung -->
+    <section class="container text-center mt-5 mb-3">
 
-    <!-- Spende registrieren -->
-    <section class="container text-center mt-5 mb-5" id="register-donation">
-        <!-- Überschrift -->
-        <div class="row">
-            <div class="col-8 mx-auto">
-                <h4>Registrieren Sie Ihre Spende ganz einfach online</h4>
-                <p>Wählen Sie zunächst, ob Sie Ihre Spende vorbeibringen möchten oder ob wir diese für Sie abholen sollen</p>
-            </div>
-        </div>
-
-        <div class="form-bg" style=>
-        <!-- Auswahlmöglichkeiten -->
-        <div class="row mt-3">
-            <!-- Vorbeibringen -->
-            <div class="mx-auto col-3 border rounded p-3 me-2 clickable selected" id="dropoff" style="border-width: 2px !important;">
-                <h5><i class="bi bi-box2-heart"></i> Vorbeibringen</h5>
-                <p class="mb-0">Bringen Sie Ihre Spenden zu einem unserer 169 Standorte</p>
-            </div>
-
-            <!-- Abholen lassen -->
-            <div class="mx-auto col-3 border rounded p-3 ms-2 clickable" id="pickup" style="border-width: 2px !important;">
-                <h5><i class="bi bi-truck"></i> Abholen lassen</h5>
-                <p class="mb-0">Nutzen Sie unseren Abholservice und lassen Sie Ihre Spende abholen</p>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-7 mx-auto rounded" style="background-color: #003566;">
-                <form class="p-4 ">
-                    <!-- Anrede -->
-                    <div class="col-3 mb-3 ps-3 pe-3">
-                        <select id="anrede" class="donation-form form-select" required>
-                            <option value="" selected disabled>Anrede</option>
-                            <option value="Herr">Herr</option>
-                            <option value="Frau">Frau</option>
-                            <option value="Divers">Divers</option>
-                        </select>
-                    </div>
-
-                    <!-- Name -->
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" id="vorname" class="donation-form form-control" placeholder="Max" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" id="nachname" class="donation-form form-control" placeholder="Mustermann" required>
-                        </div>
-                    </div>
-                    <!-- Kontakt -->
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="email" class="form-label">E-Mail</label>
-                            <input type="email" id="email" class="donation-form form-control" placeholder="name@example.com" required>
-                        </div>
-                        <div class="col">
-                            <label for="telefon" class="form-label">Telefon</label>
-                            <input type="tel" id="telefon" class="donation-form form-control" placeholder="0123 4567890" required>
-                        </div>
-                    </div>
-                    <!-- Adresse -->
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="plz" class="form-label">PLZ</label>
-                            <input type="text" id="plz" class="donation-form form-control" placeholder="12345" required>
-                        </div>
-                        <div class="col">
-                            <label for="stadt" class="form-label">Stadt</label>
-                            <input type="text" id="stadt" class="donation-form form-control" placeholder="Berlin" required>
-                        </div>
-                    </div>
-                    <!-- Art der Kleidung -->
-                    <div class="row mb-3">
-                        <label for="kleidung" class="form-label">Art der Kleidung</label>
-                        <select id="kleidung" class="donation-form form-select" multiple required>
-                            <option value="Socken">Socken</option>
-                            <option value="Hemden">Hemden</option>
-                            <option value="Hosen">Hosen</option>
-                            <option value="Jacken">Jacken</option>
-                            <option value="Schuhe">Schuhe</option>
-                        </select>
-                        <small class="form-text text-muted">Drücken Sie Strg (oder Cmd) für Mehrfachauswahl.</small>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">Absenden</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
+        <h4>Registrieren Sie Ihre Spende ganz einfach online</h4>
+ 
     </section>
 
-    <!-- FAQ -->
-     <div class="container pb-5">
-        <h4>F.A.Q.</h4>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Accordion Item #1
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Spendenformular -->
+    <section class="container mb-5">
+        <form class="col-8 mx-auto bg-dark p-5 rounded-3">
+
+
+            <div class="row pb-3 pt-1 border-bottom">
+                <div class="col-2">
+                    <label for="title">Anrede*</label>
+                    <select id="title" class="form-select" required>
+                        <option value="Herr">Herr</option>
+                        <option value="Frau">Frau</option>
+                        <option value="Divers">Divers</option>
+                    </select>
+                </div>
+
+                <div class="col-md">
+                    <label for="firstname">Vorname*</label>
+                    <input type="text" id="firstname" class="form-control" placeholder="Max" required>
+                </div>
+
+                <div class="col-md">
+                    <label for="lastname">Nachname*</label>
+                    <input type="text" id="lastname" class="form-control" placeholder="Mustermann" required>
+                </div>
+            </div>
+
+
+            <div class="row pt-2 pb-3 border-bottom">
+                <div class="col-md">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com">
+                </div>
+
+                <div class="col-md">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="0123 4567890">
+                </div>
+            </div>
+
+
+            <div class="row pt-3 pb-4 border-bottom">
+
+                <h6>Spendenart wählen</h6>
+                <p>Möchten Sie Ihre Spende an einem unserer Standorte abgeben oder möchten Sie, dass wir Ihre Spende abholen?</p>
+
+                <div class="col">
+                    <input type="radio" class="btn-check" name="options-outlined" id="dropoff-outlined" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="dropoff-outlined"><i class="bi bi-bag-heart"></i> Vorbeibringen</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined" id="pickup-outlined" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pickup-outlined"><i class="bi bi-truck"></i> Abholen lassen</label>
+                </div>
+            </div>
+
+
+            <div class="row pt-3 pb-4 border-bottom">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="street">Straße*</label>
+                        <input type="text" id="street" class="form-control" placeholder="Königsgasse" required>
+                    </div>
+
+                    <div class="col-md">
+                        <label for="number">Hausnr.*</label>
+                        <input type="text" id="number" class="form-control" placeholder="143" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="postcode">PLZ*</label>
+                        <input type="text" id="postcode" class="form-control" placeholder="12345" required>
+                    </div>
+
+                    <div class="col-md">
+                        <label for="city">Stadt*</label>
+                        <input type="text" id="city" class="form-control" placeholder="Berlin" required>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row pt-3 pb-4 border-bottom">
+
+                <h6>Kleidungsstücke auswählen</h6>
+                <p>Bitte wählen Sie, welche Kleidungsstücke Sie spenden möchten</p>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="socks">
+                    <label class="form-check-label" for="socks">Socken</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="jeans">
+                    <label class="form-check-label" for="jeans">Hosen</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="sweater">
+                    <label class="form-check-label" for="sweater">Pullover</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="jackets">
+                    <label class="form-check-label" for="jackets">Jacken</label>
+                </div>
+            </div>
+
+
+            <div class="row pt-3 pb-4 border-bottom">
+
+                <h6>Krisenregion auswählen</h6>
+                <p>Bitte wähen Sie ein Krisengebiet aus, in das Ihre Spende geschickt werden soll</p>
+
+                <div class="col-3">
+                    <input class="form-check-input" type="radio" name="country" id="afghanistan">
+                    <label class="form-check-label" for="afghanistan">Afghanistan</label>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-check-input" type="radio" name="country" id="israel">
+                    <label class="form-check-label" for="israel">Israel</label>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-check-input" type="radio" name="country" id="ghaza">
+                    <label class="form-check-label" for="ghaza">Ghaza</label>
+                </div>
+            </div>
+
+
+            <div class="row pt-3 pb-4">
+                 <button type="submit" class="btn btn-primary">Senden</button>
+            </div>
+        </form>
+    </section>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!-- Footer -->
     <footer class="container-fluid text-light p-3">
@@ -222,11 +230,13 @@
         </div>
     </footer>
 
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <!-- Custom JavaScript -->
     <script src="js/custom.js"></script>
-</body>
 
+</body>
 </html>

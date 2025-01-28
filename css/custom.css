@@ -1,53 +1,29 @@
 :root {
-    --background-color: #001D3D;
-    --primary-color: #FFC300;
-    --footer-background: #000814;
+    --primary-color: #003566;
+    --secondary-color: #001D3DCC;
+    --accent-color: #FFC300;
 }
 
-/*Anpassung der generellen Hintergrundfarbe auf blau und der Textfarbe auf weiß*/
 body{
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     color: #fff;
 }
 
 #site-header {
-    height: 75px;
-    background-color: rgba(0, 29, 61, 0.8);
+    background-color: var(--secondary-color);
     backdrop-filter: blur(8px);
 }
 
-#landing-section {
-    margin-top: 120px;
-}
-
-/*Anpassung der Counter Farbe für den oberen Landing Bereich der Seite*/
-#donation-count{
-    color: var(--primary-color)
+#donation-counter{
+    color: var(--accent-color)
 }
 
 .horizontal-divider{
     width: 300px;
     height: 2px;
-    background-color: var(--primary-color)
+    background-color: var(--accent-color)
 }
 
-.clickable {
-    cursor: pointer; /* Mauszeiger ändern */
+.bg-dark{
+    background-color: var(--secondary-color) !important;
 }
-
-.selected {
-    border-color: var(--primary-color) !important;
-  }
-
-/* Custom Form Stuff */
-.donation-form {
-    background-color: #001D3D;
-    border-color: #FFC300;
-    border-width: 2px;
-    color:white;
-}
-
-
-footer {
-    background-color: var(--footer-background);
-  }
