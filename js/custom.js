@@ -19,24 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 50);
 });
 
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
   const dropoffOption = document.getElementById("dropoff-outlined");
   const pickupOption = document.getElementById("pickup-outlined");
 
-  const streetField = document.getElementById("street").parentElement;
-  const numberField = document.getElementById("number").parentElement;
-  const cityField = document.getElementById("city").parentElement;
+  const pickupAddressField = document.getElementById("pickup-address");
 
   const toggleFields = () => {
       if (pickupOption.checked) {
-          streetField.style.display = "block";
-          numberField.style.display = "block";
-          cityField.style.display = "block";
+        pickupAddressField.style.display = "block";
+
       } else {
-          streetField.style.display = "none";
-          numberField.style.display = "none";
-          cityField.style.display = "none";
+        pickupAddressField.style.display = "none";
       }
   };
 
@@ -48,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   pickupOption.addEventListener("change", toggleFields);
 });
 
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 
 document.querySelector("form").addEventListener("submit", function(event) {
   event.preventDefault(); // Verhindert das Standard-Formularverhalten
