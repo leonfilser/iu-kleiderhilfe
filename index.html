@@ -23,212 +23,379 @@
 <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <body>
+
     <!-- Header -->
     <!-- Siehe: https://getbootstrap.com/docs/5.3/components/navbar/ --> 
-    <nav class="navbar sticky-top pt-3 pb-3" id="site-header">
+    <nav class="navbar navbar-expand-lg sticky-top bg-dark border-bottom border-2 border-primary" id="site-header">
         <div class="container">
-
-            <a class="navbar-brand text-white" href="#">
-                <i class="bi bi-backpack-fill"></i> KleiderHilfe
+            <a class="navbar-brand text-white fw-bold" href="/">
+                <i class="bi bi-backpack-fill me-2"></i>KleiderHilfe
             </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" 
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Navigation einblenden">
+                <i class="bi bi-list text-white"></i>
+            </button>
 
-            <div class="navbar-nav flex-row gap-3">
-                <a class="nav-link text-white" href="#faq">F.A.Q.</a>
-                <a class="btn btn-primary" href="#donation">Spenden</a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav ms-auto align-items-center gap-3 py-3 py-lg-0">
+                    <a class="nav-link text-white" href="/">Startseite</a>
+                    <a class="nav-link text-white" href="#">Mehr erfahren</a>
+                    <a class="nav-link text-white" href="#">Kontakt</a>
+                    <a class="btn btn-primary px-4" href="#donation-form">Jetzt Spenden <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
             </div>
-
         </div>
     </nav>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <main>
+        <!-- Landing-Bereich -->
+        <section class="container text-center mt-5 pt-5">
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-auto">
+                    <h1>Jede Kleiderspende zählt!</h1>
+                    <h4>Bereits mehr als <span id="donation-counter">0</span> Kleidungsstücke gesammelt</h4>
+                    <p class="mt-3">
+                        Unterstützen Sie Menschen in Krisenregionen mit Ihrer Kleiderspende.
+                        Entscheiden Sie selbst, wohin Ihre Hilfe gehen soll. Einfach registrieren, auswählen und Gutes tun.
+                        Werden Sie Teil unserer Mission, Bedürftigen weltweit Hoffnung und Unterstützung zu schenken.
+                        Jeder Beitrag zählt - machen Sie mit!
+                    </p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Trennlinie -->
+        <hr class="container">
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <section class="container text-center mt-5 mb-3">
+
+            <h4>Registrieren Sie Ihre Spende ganz einfach online</h4>
+    
+        </section>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------->
+  
+        <!-- Spendenformular -->
+        <section class="container mb-5">
+            <form class="col-12 col-md-8 col-lg-8 mx-auto border p-5 rounded-3"  id="donation-form">
+          
+                <!-- Vorname, Nachname -->
+                <div class="row g-3 border-bottom pb-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label">Vorname*</label>
+                        <input
+                            type="text" 
+                            id="firstname" 
+                            class="form-control" 
+                            placeholder="Vorname*" 
+                            required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="lastname" class="form-label">Nachname*</label>
+                        <input 
+                            type="text" 
+                            id="lastname" 
+                            class="form-control" 
+                            placeholder="Nachname*" 
+                            required>
+                    </div>
+                </div>
+    
+
+                <!-- E-Mail und Telefonnummer -->
+                <div class="row g-3 border-bottom pb-3 mb-3">
+                    <div class="col-md-6">
+                    <label for="email" class="form-label">E-Mail*</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        class="form-control" 
+                        placeholder="E-Mail*"
+                        required>
+                    </div>
+
+                    <div class="col-md-6">
+                    <label for="phone" class="form-label">Telefon (optional)</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        class="form-control" 
+                        placeholder="Telefon (optional)">
+                    </div>
+                </div>
+    
+
+                <!-- Spendenart -->
+                <div class="border-bottom pb-3 mb-3">
+
+                    <h6>Spendenart wählen</h6>
+                    <p class="mb-3">Möchten Sie Ihre Spende in unserer Geschäftsstelle abgeben oder sollen wir sie mit dem Sammelfahrzeug abholen?</p>
+
+                    <div class="d-flex gap-3 flex-wrap">
+                        <div>
+                            <input 
+                                type="radio" 
+                                class="btn-check" 
+                                name="donationType" 
+                                id="dropoff" 
+                                autocomplete="off"
+                                checked>
+
+                            <label class="btn btn-outline-primary" for="dropoff">
+                                <i class="bi bi-bag-heart"></i> 
+                                Übergabe an der Geschäftsstelle
+                            </label>
+                        </div>
+
+                        <div>
+                            <input 
+                                type="radio" 
+                                class="btn-check" 
+                                name="donationType" 
+                                id="pickup" 
+                                autocomplete="off">
+
+                            <label class="btn btn-outline-primary" for="pickup">
+                                <i class="bi bi-truck"></i> 
+                                Abholung durch Sammelfahrzeug
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Abholadresse (optional) -->
+                <div class="border-bottom pb-3 mb-3" id="pickup-address">
+
+                    <h6>Abholadresse</h6>
+                    <p class="mb-3">Bitte geben Sie Ihre Adresse an, damit wir die Abholung planen können</p>
+
+                    <div class="row g-3">
+                        <div class="col-md-9">
+                            <label for="street" class="form-label">Straße*</label>
+                            <input 
+                                type="text" 
+                                id="street" 
+                                class="form-control" 
+                                placeholder="Königsgasse">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="number" class="form-label">Hausnr.*</label>
+                            <input 
+                                type="text" 
+                                id="number" 
+                                class="form-control" 
+                                placeholder="143">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-1">
+                        <div class="col-md-3">
+                            <label for="postcode" class="form-label">PLZ*</label>
+                            <input 
+                                type="text" 
+                                id="postcode" 
+                                class="form-control" 
+                                placeholder="12345">
+                        </div>
+
+                        <div class="col-md-9">
+                            <label for="city" class="form-label">Stadt*</label>
+                            <input 
+                                type="text" 
+                                id="city" 
+                                class="form-control" 
+                                placeholder="Berlin">
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Art der Kleidung -->
+                <div class="border-bottom pb-3 mb-3">
+
+                    <h6>Art der Kleidung wählen</h6>
+                    <p class="mb-3">Bitte wählen Sie, welche Kleidungsstücke Sie spenden möchten</p>
+
+                    <div class="row g-3">
+                        <div class="col-12 d-flex flex-wrap gap-3">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input clothing-type" 
+                                    type="checkbox" 
+                                    value="tshirts" 
+                                    id="tshirts">
+                                <label class="form-check-label" for="tshirts">T-Shirts</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input clothing-type" 
+                                    type="checkbox" 
+                                    value="pullover" 
+                                    id="pullover">
+                                <label class="form-check-label" for="pullover">Pullover/Sweatshirts</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input clothing-type" 
+                                    type="checkbox" 
+                                    value="jackets" 
+                                    id="jackets">
+                                <label class="form-check-label" for="jackets">Jacken</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input clothing-type" 
+                                    type="checkbox" 
+                                    value="socks" 
+                                    id="socks"
+                                >
+                                <label class="form-check-label" for="socks">Socken</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input clothing-type" 
+                                    type="checkbox" 
+                                    value="jeans" 
+                                    id="jeans">
+                                <label class="form-check-label" for="jeans">Hosen</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    
+                <!-- Krisengebiet -->
+                <div class="border-bottom pb-3 mb-3">
+
+                    <h6>Krisenregion auswählen</h6>
+                    <p class="mb-3">Bitte wählen Sie ein Krisengebiet, in das Ihre Spende geschickt werden soll</p>
+
+                    <div class="d-flex gap-3 flex-wrap">
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input crisis-area" 
+                                type="radio" 
+                                name="crisisRegion" 
+                                id="afghanistan" 
+                                required>
+                            <label class="form-check-label" for="afghanistan">Afghanistan</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input crisis-area" 
+                                type="radio" 
+                                name="crisisRegion" 
+                                id="israel" 
+                                required>
+                            <label class="form-check-label" for="israel">Israel</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input crisis-area" 
+                                type="radio" 
+                                name="crisisRegion" 
+                                id="ghaza" 
+                                required>
+                            <label class="form-check-label" for="ghaza">Ghaza</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Absende Button -->
+                <div class="row pt-3">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Senden</button>
+                    </div>
+                </div>
+            </form>
+  
+            <!-- Fehlermeldung -->
+            <div id="error-message" class="alert alert-danger d-none mt-3" role="alert">
+                Leider befinden Sie sich außerhalb unseres Abholgebiets.
+            </div>
+        </section>
+    </main>
+
 <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- Landing Bereich -->
-    <section class="container text-center mt-5 pt-5">
-        <div class="row">
-            <div class="col-8 mx-auto">
-                <h1>Jede Kleiderspende zählt!</h1>
-                <h4>Bereits mehr als <span id="donation-counter">0</span> Kleidungsstücke gesammelt</h4>
-                <p>
-                    Unterstützen Sie Menschen in Krisenregionen mit Ihrer Kleiderspende.
-                    Entscheiden Sie selbst, wohin Ihre Hilfe gehen soll. Einfach registrieren, auswählen und Gutes tun.
-                    Werden Sie Teil unserer Mission, Bedürftigen weltweit Hoffnung und Unterstützung zu schenken.
-                    Jeder Beitrag zählt - machen Sie mit
-                </p>
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4 mt-auto">
+        <div class="container">
+    
+            <!-- Reihen-Anordnung: zentriert auf kleineren Screens, verteilt auf großen Screens -->
+            <div class="row gy-4 justify-content-center justify-content-lg-between">
+                
+                <!-- Kontakt -->
+                <div class="col-sm-12 col-lg-4 text-center text-lg-start">
+                    <h5>Kontakt</h5>
+                    <p class="small mb-1">
+                        <i class="bi bi-telephone-fill me-2"></i>Telefon: 0123 456789
+                    </p>
+                    <p class="small mb-1">
+                        <i class="bi bi-envelope-fill me-2"></i>Email: info@KleiderHilfe.de
+                    </p>
+                    <p class="small mb-1">
+                        <i class="bi bi-geo-alt-fill me-2"></i>Anschrift: Musterstraße 1, 12345 Musterstadt
+                    </p>
+                </div>
+    
+                <!-- Rechtliches -->
+                <div class="col-sm-12 col-lg-4 text-center text-lg-start">
+                    <h5>Rechtliches</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-white text-decoration-none">Impressum</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Datenschutz</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">AGB</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Newsletter -->
+                <div class="col-sm-12 col-lg-4 text-center text-lg-start">
+                    <h5>Newsletter abonnieren</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="newsletter" class="visually-hidden">E-Mail-Adresse</label>
+                            <input 
+                                type="email" 
+                                class="form-control-sm" 
+                                id="newsletter" 
+                                placeholder="E-Mail-Adresse" 
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Abonnieren</button>
+                    </form>
+                </div>
             </div>
+    
+            <!-- Trennlinie -->
+            <hr class="border-light mt-4">
+    
+            <!-- Copyright & Social Media -->
+            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
+                <p class="mb-2 mb-md-0 small text-center text-md-start">© 2025 KleiderHilfe. Alle Rechte vorbehalten.</p>
+                <div class="text-center text-md-end">
+                    <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+    
         </div>
-    </section>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- Horizontal Divider -->
-    <section class="horizontal-divider container mt-5 mb-5"></section>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- Infotext zur Spendenregistrierung -->
-    <section class="container text-center mt-5 mb-3">
-
-        <h4>Registrieren Sie Ihre Spende ganz einfach online</h4>
- 
-    </section>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- Spendenformular -->
-    <section class="container mb-5" id="donation">
-        <form class="col-12 col-md-8 col-lg-8 mx-auto bg-dark p-5 rounded-3">
-
-
-            <div class="row pb-3 pt-1 border-bottom">
-                <div class="col-12 col-md-3 mb-2 mb-md-0">
-                    <label for="title">Anrede*</label>
-                    <select id="title" class="form-select" required>
-                        <option value="Herr">Herr</option>
-                        <option value="Frau">Frau</option>
-                        <option value="Divers">Divers</option>
-                    </select>
-                </div>
-
-                <div class="col-md col-6 mb-2 mb-md-0">
-                    <label for="firstname">Vorname*</label>
-                    <input type="text" id="firstname" class="form-control" placeholder="Max" required>
-                </div>
-
-                <div class="col-md col-6 mb-2 mb-md-0">
-                    <label for="lastname">Nachname*</label>
-                    <input type="text" id="lastname" class="form-control" placeholder="Mustermann" required>
-                </div>
-            </div>
-
-
-            <div class="row pt-2 pb-3 border-bottom">
-                <div class="col-md mb-2 mb-md-0">
-                    <label for="email">E-Mail</label>
-                    <input type="email" id="email" class="form-control" placeholder="name@example.com">
-                </div>
-
-                <div class="col-md">
-                    <label for="phone">Telefon</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="0123 4567890">
-                </div>
-            </div>
-
-
-            <div class="row pt-3 pb-4 border-bottom">
-
-                <h6>Spendenart wählen</h6>
-                <p>Möchten Sie Ihre Spende in unserer Geschäftsstelle abgeben oder sollen wir sie mit dem Sammelfahrzeug abholen kommen?</p>
-
-                <div class="col">
-                    <input type="radio" class="btn-check" name="options-outlined" id="dropoff-outlined" autocomplete="off" checked>
-                    <label class="btn btn-outline-primary" for="dropoff-outlined"><i class="bi bi-bag-heart"></i> Übergabe an der Geschäftsstelle</label>
-
-                    <input type="radio" class="btn-check" name="options-outlined" id="pickup-outlined" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="pickup-outlined"><i class="bi bi-truck"></i> Von Sammelfahrzeug Abholen lassen</label>
-                </div>
-            </div>
-
-
-            <div class="row pt-3 pb-4 border-bottom" id="pickup-address">
-                <div class="row">
-                    <div class="col-9 mb-2 mb-md-0">
-                        <label for="street">Straße*</label>
-                        <input type="text" id="street" class="form-control" placeholder="Königsgasse" required>
-                    </div>
-
-                    <div class="col-3 mb-2 mb-md-0">
-                        <label for="number">Hausnr.*</label>
-                        <input type="text" id="number" class="form-control" placeholder="143" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-3">
-                        <label for="postcode">PLZ*</label>
-                        <input type="text" id="postcode" class="form-control" placeholder="12345" required>
-                    </div>
-
-                    <div class="col-9">
-                        <label for="city">Stadt*</label>
-                        <input type="text" id="city" class="form-control" placeholder="Berlin" required>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row pt-3 pb-4 border-bottom">
-
-                <h6>Kleidungsstücke auswählen</h6>
-                <p>Bitte wählen Sie, welche Kleidungsstücke Sie spenden möchten</p>
-
-                <div class="col-2">
-                    <input class="form-check-input" type="checkbox" value="" id="socks">
-                    <label class="form-check-label" for="socks">Socken</label>
-                </div>
-
-                <div class="col-2">
-                    <input class="form-check-input" type="checkbox" value="" id="jeans">
-                    <label class="form-check-label" for="jeans">Hosen</label>
-                </div>
-
-                <div class="col-2">
-                    <input class="form-check-input" type="checkbox" value="" id="sweater">
-                    <label class="form-check-label" for="sweater">Pullover</label>
-                </div>
-
-                <div class="col-2">
-                    <input class="form-check-input" type="checkbox" value="" id="jackets">
-                    <label class="form-check-label" for="jackets">Jacken</label>
-                </div>
-            </div>
-
-
-            <div class="row pt-3 pb-4 border-bottom">
-
-                <h6>Krisenregion auswählen</h6>
-                <p>Bitte wähen Sie ein Krisengebiet aus, in das Ihre Spende geschickt werden soll</p>
-
-                <div class="col-3">
-                    <input class="form-check-input" type="radio" name="country" id="afghanistan">
-                    <label class="form-check-label" for="afghanistan">Afghanistan</label>
-                </div>
-
-                <div class="col-3">
-                    <input class="form-check-input" type="radio" name="country" id="israel">
-                    <label class="form-check-label" for="israel">Israel</label>
-                </div>
-
-                <div class="col-3">
-                    <input class="form-check-input" type="radio" name="country" id="ghaza">
-                    <label class="form-check-label" for="ghaza">Ghaza</label>
-                </div>
-            </div>
-
-
-            <div class="row pt-3 pb-4">
-                 <button type="submit" class="btn btn-primary">Senden</button>
-            </div>
-        </form>
-    </section>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------->
-
-  <!-- Footer -->
-  <footer class="container-fluid text-light p-3 bg-dark">
-    <div class="container pb-5 pt-5">
-      <div class="row">
-        <div class="col-sm-4">
-          <h5>Über uns</h5>
-          <p>Wir sind ein junges Unternehmen ...</p>
-        </div>
-        <div class="col-sm-4">
-          <h5>Kontakt</h5>
-          <p>Telefon: 0123 456789</p>
-          <p>Email: info@KleiderHilfe.de</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+    
 
 <!---------------------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -236,7 +403,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
-    <script src="js/custom.js"></script>
+    <script src="js/donationCounter.js"></script>
+    <script src="js/donationMethodSwitch.js"></script>
+    <script src="js/saveFormData.js"></script>
 
 </body>
 </html>

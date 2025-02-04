@@ -1,12 +1,6 @@
 :root {
     --primary-color: #003566;
     --secondary-color: #001D3DCC;
-    --accent-color: #FFC300;
-}
-
-body{
-    background-color: var(--primary-color);
-    color: #fff;
 }
 
 #site-header {
@@ -15,15 +9,5 @@ body{
 }
 
 #donation-counter{
-    color: var(--accent-color)
-}
-
-.horizontal-divider{
-    width: 300px;
-    height: 2px;
-    background-color: var(--accent-color)
-}
-
-.bg-dark{
-    background-color: var(--secondary-color) !important;
+    color: var(--bs-primary)
 }
