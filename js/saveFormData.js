@@ -1,7 +1,9 @@
 document.getElementById('donation-form').addEventListener('submit', function(e) {
+
   e.preventDefault();
 
-  // Daten aus den Formularfeldern abrufen
+  // Postleitzahl der Geschäftstelle. Wird zur Überprüfung der Entfernung für Sammelfahrzeuge benötigt
+  const officeZip = '12345';
 
   // Vorname, Nachname
   const firstname = document.getElementById('firstname').value;
@@ -28,18 +30,27 @@ document.getElementById('donation-form').addEventListener('submit', function(e) 
   const selectedCrisisRegion = document.querySelector('input[name="crisisRegion"]:checked');
 
   // ---------------------------------------------------------------------------------------------------------------------------------------------------
-  // Ermittelt, ob die Spende abgegeben oder abgeholt wird und liest den zugehörigen Labeltext aus.
-  let donationType = '';
-  if (dropoff.checked) {
-    const dropoffLabel = document.querySelector('label[for="' + dropoff.id + '"]');
-    donationType = dropoffLabel ? dropoffLabel.textContent.trim() : 'Übergabe an der Geschäftsstelle';
-  } else if (pickup.checked) {
-    const pickupLabel = document.querySelector('label[for="' + pickup.id + '"]');
-    donationType = pickupLabel ? pickupLabel.textContent.trim() : 'Abholung durch ein Sammelfahrzeug';
+
+  // Prüft, ob die ersten beiden Zahlen der PLZ der Geschäftsstelle entsprechen
+  if (postcode.slice(0, 2) !== officeZip.slice(0, 2)) {
+    alert('Leider befindet sich die Abholadresse zu weit von unserem Aholgebiet entfernt');
+    return;
   }
 
-  // Speichert die ausgewählten Kleidungsarten in einem Array anhand des Labeltexts
+  // Ermittelt, ob die Spende abgegeben oder abgeholt wird
+  let donationType = '';
+
+  if (dropoff.checked) {
+    donationType = 'Übergabe an der Geschäftsstelle';
+  } else if (pickup.checked) {
+    donationType = 'Abholung durch ein Sammelfahrzeug';
+  }
+
+  // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // Speichert den Labeltext der ausgewählten Kleidungsarten in einem Array
   const selectedClothingTypes = [];
+
   allClothingTypes.forEach(function(checkbox) {
     if (checkbox.checked) {
       const label = document.querySelector('label[for="' + checkbox.id + '"]');
@@ -48,6 +59,8 @@ document.getElementById('donation-form').addEventListener('submit', function(e) 
       }
     }
   });
+
+  // ---------------------------------------------------------------------------------------------------------------------------------------------------
 
   // Statt der ID des Krisengebiets wird der Labeltext abgespeichert
   let crisisRegionLabel = null;
@@ -75,7 +88,7 @@ document.getElementById('donation-form').addEventListener('submit', function(e) 
   };
 
   // Testweise Ausgabe der JSON-Daten in der Konsole
-  console.log(formData);
+  // console.log(formData);
 
   // Speichern der Formulardaten im Session Storage
   sessionStorage.setItem('formData', JSON.stringify(formData));
