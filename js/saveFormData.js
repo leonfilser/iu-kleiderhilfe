@@ -32,7 +32,7 @@ document.getElementById('donation-form').addEventListener('submit', function(e) 
   // ---------------------------------------------------------------------------------------------------------------------------------------------------
 
   // Prüft, ob die ersten beiden Zahlen der PLZ der Geschäftsstelle entsprechen
-  if (postcode.slice(0, 2) !== officeZip.slice(0, 2)) {
+  if (pickup.checked && postcode.slice(0, 2) !== officeZip.slice(0, 2)) {
     alert('Leider befindet sich die Abholadresse zu weit von unserem Aholgebiet entfernt');
     return;
   }
